@@ -1,0 +1,16 @@
+node_modules/
+.vercel
+*.log
+.DS_Store
+.env
+.env.local
+android/
+ios/
+dist/
+.capacitor/
+*.apk
+*.aab
+*.exe
+*.dmg
+*.AppImage
+

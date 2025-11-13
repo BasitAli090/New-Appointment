@@ -1,0 +1,58 @@
+{
+  "name": "appointment-dashboard",
+  "version": "1.0.0",
+  "description": "Al Farooq Kidney Center & Ultrasound Clinic Appointment Management System",
+  "main": "electron-main.js",
+  "scripts": {
+    "dev": "vercel dev",
+    "build": "echo 'No build step required'",
+    "electron": "electron .",
+    "electron:build": "electron-builder",
+    "android:sync": "npx cap sync android",
+    "android:open": "npx cap open android",
+    "android:build": "cd android && ./gradlew assembleRelease"
+  },
+  "dependencies": {
+    "@vercel/node": "^3.0.0"
+  },
+  "devDependencies": {
+    "vercel": "^34.0.0",
+    "electron": "^28.0.0",
+    "electron-builder": "^24.9.1",
+    "@capacitor/core": "^5.5.1",
+    "@capacitor/cli": "^5.5.1",
+    "@capacitor/android": "^5.5.1"
+  },
+  "build": {
+    "appId": "com.alfaroq.appointment",
+    "productName": "Al Farooq Appointment System",
+    "directories": {
+      "output": "dist"
+    },
+    "files": [
+      "**/*",
+      "!android/**/*",
+      "!.capacitor/**/*",
+      "!node_modules/**/*",
+      "!dist/**/*"
+    ],
+    "win": {
+      "target": [
+        {
+          "target": "nsis",
+          "arch": [
+            "x64",
+            "ia32"
+          ]
+        }
+      ],
+      "icon": "assets/icon.ico"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true
+    }
+  }
+}
